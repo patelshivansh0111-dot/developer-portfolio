@@ -4,71 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Pareshbhai Patel | Pirate Portfolio</title>
+    <title>Shivansh Pareshbhai Patel | Developer Portfolio</title>
     <meta name="description"
-        content="Portfolio of Shivansh Pareshbhai Patel — full-stack web developer charting courses across React, Node.js, and the open seas of code.">
+        content="Portfolio of Shivansh Pareshbhai Patel — full-stack developer building with React, Next.js, Node.js, and modern web tooling.">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.style.colorScheme = theme;
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Pirata+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="canvas-container" aria-hidden="true"></div>
-    <div class="sea-mist" aria-hidden="true"></div>
-
-    <header class="hero">
-        <div class="hero-compass" aria-hidden="true">
-            <svg viewBox="0 0 120 120" class="compass-svg">
-                <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="2" />
-                <circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
-                <polygon points="60,18 66,60 60,54 54,60" fill="currentColor" />
-                <polygon points="60,102 54,60 60,66 66,60" fill="currentColor" opacity="0.35" />
-                <circle cx="60" cy="60" r="4" fill="currentColor" />
-            </svg>
+    <div class="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <span class="loader-mark">SP</span>
+            <div class="loader-bar"><i></i></div>
+            <span class="loader-text">booting portfolio…</span>
         </div>
-        <p class="hero-brand">Shivansh Pareshbhai Patel</p>
-        <h1 class="hero-title">Full-Stack Developer &amp; Code Corsair</h1>
-        <p class="hero-lead">Charting bold routes across the stack — from React shores to Node.js depths.</p>
-        <div class="hero-cta">
-            <a href="https://github.com/patelshivansh0111-dot" target="_blank" rel="noopener noreferrer"
-                class="cta-btn cta-primary"><i class="fab fa-github"></i> Board GitHub</a>
-            <a href="https://www.linkedin.com/in/shivansh-patel-858858356" target="_blank" rel="noopener noreferrer"
-                class="cta-btn cta-secondary"><i class="fab fa-linkedin"></i> LinkedIn Harbor</a>
-            <a href="#voyage" class="cta-btn cta-ghost"><i class="fas fa-scroll"></i> Read the Log</a>
+    </div>
+
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div id="canvas-container" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#top" class="nav-brand">
+            <span class="nav-brand-mark">SP</span>
+            <span class="nav-brand-text">Shivansh</span>
+        </a>
+
+        <div class="nav-center">
+            <div class="nav-links" role="list">
+                <span class="nav-indicator" aria-hidden="true"></span>
+                <a href="#about" role="listitem" data-nav><span>01</span>About</a>
+                <a href="#education" role="listitem" data-nav><span>02</span>Education</a>
+                <a href="#projects" role="listitem" data-nav><span>03</span>Projects</a>
+                <a href="#skills" role="listitem" data-nav><span>04</span>Skills</a>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <a href="mailto:patelshivansh0111@gmail.com" class="nav-cta">Hire me</a>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
+                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-drawer" id="nav-drawer" hidden>
+        <div class="nav-drawer-links">
+            <a href="#about" data-nav-mobile><span>01</span>About</a>
+            <a href="#education" data-nav-mobile><span>02</span>Education</a>
+            <a href="#projects" data-nav-mobile><span>03</span>Projects</a>
+            <a href="#skills" data-nav-mobile><span>04</span>Skills</a>
+            <a href="mailto:patelshivansh0111@gmail.com" class="nav-drawer-cta">Hire me</a>
+        </div>
+    </div>
+
+    <header class="hero" id="top">
+        <div class="hero-veil" aria-hidden="true"></div>
+        <pre class="hero-terminal" aria-hidden="true"><code><span class="t-comment">// portfolio.tsx</span>
+<span class="t-kw">const</span> <span class="t-var">dev</span> = {
+  <span class="t-key">name</span>: <span class="t-str">"Shivansh"</span>,
+  <span class="t-key">stack</span>: [<span class="t-str">"React"</span>, <span class="t-str">"Node"</span>, <span class="t-str">"TS"</span>],
+  <span class="t-key">focus</span>: <span class="t-str">"full-stack"</span>,
+};
+
+<span class="t-kw">export default</span> <span class="t-var">dev</span>;</code></pre>
+        <div class="hero-copy">
+            <p class="hero-eyebrow">Available for internships &amp; projects</p>
+            <p class="hero-brand">Shivansh Pareshbhai Patel</p>
+            <h1 class="hero-title"
+                data-roles="Full-Stack Developer|React · Node · TypeScript|API &amp; Database Builder|DSA · Debug · Ship">
+                Full-Stack Developer</h1>
+            <p class="hero-lead">Building responsive apps, secure APIs, and clean systems across the modern web stack.</p>
+            <div class="hero-cta">
+                <a href="https://github.com/patelshivansh0111-dot" target="_blank" rel="noopener noreferrer"
+                    class="cta-btn cta-primary"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/shivansh-patel-858858356" target="_blank" rel="noopener noreferrer"
+                    class="cta-btn cta-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#projects" class="cta-btn cta-ghost"><i class="fas fa-arrow-down"></i> View work</a>
+            </div>
+        </div>
+        <div class="scroll-hint" aria-hidden="true">
+            <span></span>
+            scroll
         </div>
     </header>
 
-    <main class="logbook" id="voyage">
-        <section class="log-section contact-band">
-            <a href="tel:9724934114"><i class="fas fa-phone"></i> 9724934114</a>
-            <a href="mailto:patelshivansh0111@gmail.com"><i class="fas fa-envelope"></i>
+    <main class="content" id="work">
+        <section class="section contact-band reveal">
+            <a href="tel:9724934114" class="reveal-child"><i class="fas fa-phone"></i> 9724934114</a>
+            <a href="mailto:patelshivansh0111@gmail.com" class="reveal-child"><i class="fas fa-envelope"></i>
                 patelshivansh0111@gmail.com</a>
-            <span><i class="fas fa-anchor"></i> Ahmedabad, Gujarat</span>
+            <span class="reveal-child"><i class="fas fa-location-dot"></i> Ahmedabad, Gujarat</span>
         </section>
 
-        <section class="log-section reveal">
-            <h2><span class="section-mark">01</span> Captain's Manifesto</h2>
-            <p class="manifesto">
-                Aspiring full-stack developer with a sharp compass for JavaScript, TypeScript, React, Next.js, and
-                Node.js. I build responsive apps, secure REST APIs, and data-backed features with MongoDB, PostgreSQL,
-                and Prisma — always hunting cleaner algorithms and tighter code.
+        <section class="section reveal" id="about">
+            <h2 class="reveal-child"><span class="section-mark">01</span> About</h2>
+            <p class="about-text reveal-child">
+                Aspiring full-stack developer skilled in JavaScript, TypeScript, React, Next.js, and Node.js.
+                I build responsive interfaces, secure REST APIs, and data-backed features with MongoDB, PostgreSQL,
+                and Prisma — with a strong focus on DSA, debugging, and writing maintainable code.
             </p>
         </section>
 
-        <section class="log-section reveal">
-            <h2><span class="section-mark">02</span> Ports of Call — Education</h2>
+        <section class="section reveal" id="education">
+            <h2 class="reveal-child"><span class="section-mark">02</span> Education</h2>
             <div class="timeline">
-                <article class="voyage-stop">
+                <article class="timeline-item reveal-child" data-tilt>
                     <time>2024–2028</time>
                     <div>
                         <h3>B.Tech in Computer Science &amp; Engineering</h3>
                         <p class="place">Indus University, Gujarat</p>
                         <details class="edu-details">
-                            <summary>Unfurl Grades <i class="fas fa-chevron-down"></i></summary>
+                            <summary>View grades <i class="fas fa-chevron-down"></i></summary>
                             <div class="grade-list">
                                 <div class="grade-item"><span>Sem 1:</span> 8.95 SGPA</div>
                                 <div class="grade-item"><span>Sem 2:</span> 9.23 SGPA</div>
@@ -76,14 +146,14 @@
                         </details>
                     </div>
                 </article>
-                <article class="voyage-stop">
+                <article class="timeline-item reveal-child" data-tilt>
                     <time>2024</time>
                     <div>
                         <h3>12th Science</h3>
                         <p class="place">Edunova School, Gujarat — 70%</p>
                     </div>
                 </article>
-                <article class="voyage-stop">
+                <article class="timeline-item reveal-child" data-tilt>
                     <time>2022</time>
                     <div>
                         <h3>10th Grade</h3>
@@ -93,29 +163,32 @@
             </div>
         </section>
 
-        <section class="log-section reveal">
-            <h2><span class="section-mark">03</span> Treasure Hoard — Projects</h2>
-            <article class="treasure">
-                <h3>Heet Polymers</h3>
-                <p>Corporate site for Heet Polymers — product showcase and services, charted with a modern React stack
+        <section class="section reveal" id="projects">
+            <h2 class="reveal-child"><span class="section-mark">03</span> Projects</h2>
+            <article class="project reveal-child" data-tilt>
+                <div class="project-top">
+                    <h3>Heet Polymers</h3>
+                    <span class="project-status">Live</span>
+                </div>
+                <p>Corporate website for Heet Polymers — product showcase and services, built with a modern React stack
                     and deployed on Vercel.</p>
-                <ul class="loot-tags">
+                <ul class="skill-tags">
                     <li>React</li>
                     <li>Vite</li>
                     <li>Tailwind CSS</li>
                 </ul>
-                <a href="https://heet-polymers.vercel.app/" target="_blank" rel="noopener noreferrer" class="loot-link">
-                    <i class="fas fa-compass"></i> Visit Live Shores
+                <a href="https://heet-polymers.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <i class="fas fa-external-link-alt"></i> Live demo
                 </a>
             </article>
         </section>
 
-        <section class="log-section reveal">
-            <h2><span class="section-mark">04</span> The Arsenal — Technical Skills</h2>
-            <div class="arsenal">
-                <div class="arsenal-group">
+        <section class="section reveal" id="skills">
+            <h2 class="reveal-child"><span class="section-mark">04</span> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Frontend</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>HTML5</li>
                         <li>CSS3</li>
                         <li>JavaScript (ES6+)</li>
@@ -125,25 +198,25 @@
                         <li>Tailwind CSS</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Backend</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>Node.js</li>
                         <li>Express.js</li>
                         <li>REST APIs</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Database</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>MongoDB</li>
                         <li>PostgreSQL</li>
                         <li>Prisma ORM</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Languages</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>JavaScript</li>
                         <li>TypeScript</li>
                         <li>Python</li>
@@ -151,24 +224,24 @@
                         <li>C</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Auth &amp; Security</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>JWT Authentication</li>
                         <li>bcrypt</li>
                         <li>RBAC</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Version Control</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>Git</li>
                         <li>GitHub</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Tools &amp; Deployment</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>VS Code</li>
                         <li>Postman</li>
                         <li>npm</li>
@@ -176,18 +249,18 @@
                         <li>Render</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
-                    <h3>Web Craft</h3>
-                    <ul class="loot-tags">
+                <div class="skill-group reveal-child" data-tilt>
+                    <h3>Web Development</h3>
+                    <ul class="skill-tags">
                         <li>Responsive Design</li>
                         <li>CRUD Operations</li>
                         <li>API Integration</li>
                         <li>MVC Architecture</li>
                     </ul>
                 </div>
-                <div class="arsenal-group">
+                <div class="skill-group reveal-child" data-tilt>
                     <h3>Problem Solving</h3>
-                    <ul class="loot-tags">
+                    <ul class="skill-tags">
                         <li>DSA</li>
                         <li>Debugging</li>
                         <li>Algorithm Optimization</li>
@@ -196,10 +269,10 @@
             </div>
         </section>
 
-        <div class="split-deck reveal">
-            <section class="log-section">
-                <h2><span class="section-mark">05</span> Crew Virtues</h2>
-                <ul class="virtue-list">
+        <div class="split-row reveal" id="more">
+            <section class="section reveal-child" data-tilt>
+                <h2><span class="section-mark">05</span> Soft Skills</h2>
+                <ul class="plain-list">
                     <li>Problem Solving</li>
                     <li>Team Collaboration</li>
                     <li>Communication</li>
@@ -209,18 +282,18 @@
                 </ul>
             </section>
 
-            <section class="log-section">
-                <h2><span class="section-mark">06</span> Spoken Tongues</h2>
-                <ul class="tongue-list">
+            <section class="section reveal-child" data-tilt>
+                <h2><span class="section-mark">06</span> Languages</h2>
+                <ul class="plain-list">
                     <li>English</li>
                     <li>Hindi</li>
                     <li>Gujarati</li>
                 </ul>
             </section>
 
-            <section class="log-section">
-                <h2><span class="section-mark">07</span> Off-Duty Horizons</h2>
-                <ul class="horizon-list">
+            <section class="section reveal-child" data-tilt>
+                <h2><span class="section-mark">07</span> Interests</h2>
+                <ul class="plain-list">
                     <li>Cricket</li>
                     <li>Gaming</li>
                     <li>Table Tennis</li>
@@ -230,8 +303,9 @@
         </div>
     </main>
 
-    <footer class="log-footer">
-        <p>© 2026 Shivansh Pareshbhai Patel · May fair winds fill your sails</p>
+    <footer class="site-footer">
+        <p>© 2026 Shivansh Pareshbhai Patel</p>
+        <button type="button" class="to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
     <script type="module" src="script.js"></script>
