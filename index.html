@@ -1,311 +1,420 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Shivansh Pareshbhai Patel | Developer Portfolio</title>
     <meta name="description"
-        content="Portfolio of Shivansh Pareshbhai Patel — full-stack developer building with React, Next.js, Node.js, and modern web tooling.">
+        content="Portfolio of Shivansh Pareshbhai Patel — full-stack developer building with React, Next.js, Node.js, and modern web tooling." />
     <script>
         (function () {
             try {
                 var saved = localStorage.getItem('theme');
                 var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-                document.documentElement.style.colorScheme = theme;
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(theme);
             } catch (e) {
-                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.add('light');
             }
         })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-surface-variant": "#444748",
+                        "surface": "#faf9f9",
+                        "on-background": "#1b1c1c",
+                        "on-error": "#ffffff",
+                        "surface-container": "#efeded",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container-high": "#e9e8e8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-container": "#858383",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f4f3f3",
+                        "tertiary-fixed-dim": "#c9c7b5",
+                        "inverse-surface": "#2f3031",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "secondary": "#9a442d",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary-container": "#1c1c11",
+                        "surface-bright": "#faf9f9",
+                        "on-tertiary-container": "#868474",
+                        "background": "#faf9f9",
+                        "on-tertiary-fixed-variant": "#48473a",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fc9174",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface": "#1b1c1c",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e3e2e2",
+                        "tertiary-fixed": "#e6e3d0",
+                        "outline": "#747878",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c8c6c5",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-tertiary-fixed": "#1c1c11",
+                        "surface-dim": "#dbdad9",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#742814"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "section-padding": "120px",
+                        unit: "8px",
+                        "mobile-margin": "20px",
+                        gutter: "32px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["Hanken Grotesk"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .smooth-glide {
+            transition: all 300ms ease-in-out;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        html.dark body {
+            --tw-bg-opacity: 1;
+        }
+
+        html.dark .bg-surface,
+        html.dark .dark\:bg-background {
+            background-color: #121212;
+        }
+
+        html.dark .text-primary,
+        html.dark .dark\:text-on-background {
+            color: #f2f0f0;
+        }
+
+        html.dark .text-on-surface {
+            color: #e3e2e2;
+        }
+
+        html.dark .text-on-surface-variant {
+            color: #c4c7c7;
+        }
+
+        html.dark .bg-surface-container,
+        html.dark .bg-surface-container-low {
+            background-color: #1e1e1e;
+        }
+
+        html.dark .border-on-surface\/10,
+        html.dark .border-on-surface\/5 {
+            border-color: rgba(242, 240, 240, 0.1);
+        }
+
+        .nav-drawer {
+            transition: opacity 300ms ease, visibility 300ms ease;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="loader" aria-hidden="true">
-        <div class="loader-inner">
-            <span class="loader-mark">SP</span>
-            <div class="loader-bar"><i></i></div>
-            <span class="loader-text">booting portfolio…</span>
-        </div>
-    </div>
-
-    <div class="cursor" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <div id="canvas-container" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-
-    <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="#top" class="nav-brand">
-            <span class="nav-brand-mark">SP</span>
-            <span class="nav-brand-text">Shivansh</span>
-        </a>
-
-        <div class="nav-center">
-            <div class="nav-links" role="list">
-                <span class="nav-indicator" aria-hidden="true"></span>
-                <a href="#about" role="listitem" data-nav><span>01</span>About</a>
-                <a href="#education" role="listitem" data-nav><span>02</span>Education</a>
-                <a href="#projects" role="listitem" data-nav><span>03</span>Projects</a>
-                <a href="#skills" role="listitem" data-nav><span>04</span>Skills</a>
+<body class="bg-surface text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <header class="w-full top-0 sticky z-50 bg-surface dark:bg-background border-b border-on-surface/10">
+        <nav class="flex justify-between items-center px-mobile-margin py-4 max-w-container-max mx-auto gap-4">
+            <div class="flex items-center gap-3 min-w-0">
+                <button type="button" id="nav-burger" class="material-symbols-outlined text-primary md:hidden"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">menu</button>
+                <a href="#top" class="font-display-lg text-display-lg-mobile md:text-[42px] tracking-tighter text-primary dark:text-on-background leading-none truncate">
+                    SHIVANSH
+                </a>
             </div>
-        </div>
-
-        <div class="nav-actions">
-            <a href="mailto:patelshivansh0111@gmail.com" class="nav-cta">Hire me</a>
-            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
-                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
-                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <div class="nav-drawer" id="nav-drawer" hidden>
-        <div class="nav-drawer-links">
-            <a href="#about" data-nav-mobile><span>01</span>About</a>
-            <a href="#education" data-nav-mobile><span>02</span>Education</a>
-            <a href="#projects" data-nav-mobile><span>03</span>Projects</a>
-            <a href="#skills" data-nav-mobile><span>04</span>Skills</a>
-            <a href="mailto:patelshivansh0111@gmail.com" class="nav-drawer-cta">Hire me</a>
-        </div>
-    </div>
-
-    <header class="hero" id="top">
-        <div class="hero-veil" aria-hidden="true"></div>
-        <pre class="hero-terminal" aria-hidden="true"><code><span class="t-comment">// portfolio.tsx</span>
-<span class="t-kw">const</span> <span class="t-var">dev</span> = {
-  <span class="t-key">name</span>: <span class="t-str">"Shivansh"</span>,
-  <span class="t-key">stack</span>: [<span class="t-str">"React"</span>, <span class="t-str">"Node"</span>, <span class="t-str">"TS"</span>],
-  <span class="t-key">focus</span>: <span class="t-str">"full-stack"</span>,
-};
-
-<span class="t-kw">export default</span> <span class="t-var">dev</span>;</code></pre>
-        <div class="hero-copy">
-            <p class="hero-eyebrow">Available for internships &amp; projects</p>
-            <p class="hero-brand">Shivansh Pareshbhai Patel</p>
-            <h1 class="hero-title"
-                data-roles="Full-Stack Developer|React · Node · TypeScript|API &amp; Database Builder|DSA · Debug · Ship">
-                Full-Stack Developer</h1>
-            <p class="hero-lead">Building responsive apps, secure APIs, and clean systems across the modern web stack.</p>
-            <div class="hero-cta">
-                <a href="https://github.com/patelshivansh0111-dot" target="_blank" rel="noopener noreferrer"
-                    class="cta-btn cta-primary"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/shivansh-patel-858858356" target="_blank" rel="noopener noreferrer"
-                    class="cta-btn cta-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="#projects" class="cta-btn cta-ghost"><i class="fas fa-arrow-down"></i> View work</a>
+            <div class="hidden md:flex items-center gap-gutter">
+                <a class="nav-link font-label-caps text-label-caps text-secondary border-b border-secondary" href="#top">Home</a>
+                <a class="nav-link font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide" href="#about">About</a>
+                <a class="nav-link font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide" href="#work">Work</a>
+                <a class="nav-link font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide" href="#education">Education</a>
+                <a class="nav-link font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide" href="#skills">Skills</a>
             </div>
-        </div>
-        <div class="scroll-hint" aria-hidden="true">
-            <span></span>
-            scroll
-        </div>
+            <div class="flex items-center gap-3">
+                <button type="button" id="theme-toggle"
+                    class="material-symbols-outlined text-primary hover:text-secondary smooth-glide"
+                    aria-label="Toggle color theme" title="Toggle theme">dark_mode</button>
+                <a href="mailto:patelshivansh0111@gmail.com"
+                    class="hidden sm:inline font-label-caps text-label-caps text-primary hover:text-secondary smooth-glide">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <main class="content" id="work">
-        <section class="section contact-band reveal">
-            <a href="tel:9724934114" class="reveal-child"><i class="fas fa-phone"></i> 9724934114</a>
-            <a href="mailto:patelshivansh0111@gmail.com" class="reveal-child"><i class="fas fa-envelope"></i>
-                patelshivansh0111@gmail.com</a>
-            <span class="reveal-child"><i class="fas fa-location-dot"></i> Ahmedabad, Gujarat</span>
+    <div id="nav-drawer"
+        class="nav-drawer fixed inset-0 z-40 bg-surface/95 dark:bg-[#121212]/95 backdrop-blur-md px-mobile-margin pt-24 opacity-0 invisible pointer-events-none md:hidden">
+        <div class="flex flex-col gap-6 max-w-md">
+            <a class="drawer-link font-headline-sm text-headline-sm text-primary" href="#top">Home</a>
+            <a class="drawer-link font-headline-sm text-headline-sm text-primary" href="#about">About</a>
+            <a class="drawer-link font-headline-sm text-headline-sm text-primary" href="#work">Work</a>
+            <a class="drawer-link font-headline-sm text-headline-sm text-primary" href="#education">Education</a>
+            <a class="drawer-link font-headline-sm text-headline-sm text-primary" href="#skills">Skills</a>
+            <a class="drawer-link font-headline-sm text-headline-sm text-secondary" href="mailto:patelshivansh0111@gmail.com">Contact</a>
+        </div>
+    </div>
+
+    <main id="top">
+        <section class="max-w-container-max mx-auto px-mobile-margin py-section-padding flex flex-col items-center text-center">
+            <div class="max-w-3xl">
+                <p class="font-label-caps text-label-caps text-secondary mb-4">FULL-STACK DEVELOPER</p>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                    Shivansh Pareshbhai Patel
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                    Building responsive apps, secure APIs, and clean systems that bridge thoughtful design with technical precision.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a class="inline-block bg-primary text-on-primary font-label-caps text-label-caps px-10 py-5 rounded-none smooth-glide hover:bg-secondary-container hover:text-on-secondary-container"
+                        href="#work">VIEW WORK</a>
+                    <a class="inline-block border border-on-surface/20 text-primary font-label-caps text-label-caps px-10 py-5 rounded-none smooth-glide hover:border-secondary hover:text-secondary"
+                        href="https://github.com/patelshivansh0111-dot" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                </div>
+            </div>
         </section>
 
-        <section class="section reveal" id="about">
-            <h2 class="reveal-child"><span class="section-mark">01</span> About</h2>
-            <p class="about-text reveal-child">
-                Aspiring full-stack developer skilled in JavaScript, TypeScript, React, Next.js, and Node.js.
-                I build responsive interfaces, secure REST APIs, and data-backed features with MongoDB, PostgreSQL,
-                and Prisma — with a strong focus on DSA, debugging, and writing maintainable code.
-            </p>
+        <section class="max-w-container-max mx-auto px-mobile-margin pb-16">
+            <div class="flex flex-wrap justify-center gap-6 md:gap-10 font-label-caps text-label-caps text-on-surface-variant">
+                <a class="hover:text-secondary smooth-glide" href="tel:9724934114">9724934114</a>
+                <a class="hover:text-secondary smooth-glide" href="mailto:patelshivansh0111@gmail.com">patelshivansh0111@gmail.com</a>
+                <span>Ahmedabad, Gujarat</span>
+            </div>
         </section>
 
-        <section class="section reveal" id="education">
-            <h2 class="reveal-child"><span class="section-mark">02</span> Education</h2>
-            <div class="timeline">
-                <article class="timeline-item reveal-child" data-tilt>
-                    <time>2024–2028</time>
-                    <div>
-                        <h3>B.Tech in Computer Science &amp; Engineering</h3>
-                        <p class="place">Indus University, Gujarat</p>
-                        <details class="edu-details">
-                            <summary>View grades <i class="fas fa-chevron-down"></i></summary>
-                            <div class="grade-list">
-                                <div class="grade-item"><span>Sem 1:</span> 8.95 SGPA</div>
-                                <div class="grade-item"><span>Sem 2:</span> 9.23 SGPA</div>
+        <section class="max-w-container-max mx-auto px-mobile-margin py-section-padding" id="about">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+                <div class="md:col-span-4">
+                    <span class="font-label-caps text-label-caps text-secondary block mb-2">PROFILE</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">About</h2>
+                </div>
+                <div class="md:col-span-8">
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Aspiring full-stack developer skilled in JavaScript, TypeScript, React, Next.js, and Node.js.
+                        I build responsive interfaces, secure REST APIs, and data-backed features with MongoDB, PostgreSQL,
+                        and Prisma — with a strong focus on DSA, debugging, and writing maintainable code.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-container-max mx-auto px-mobile-margin py-section-padding" id="work">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <span class="font-label-caps text-label-caps text-secondary block mb-2">CURATED PROJECTS</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Featured Work</h2>
+                </div>
+                <div class="w-full md:w-1/3 h-px bg-on-surface/10 mb-2 hidden md:block"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <article class="group">
+                    <a href="https://heet-polymers.vercel.app/" target="_blank" rel="noopener noreferrer" class="block">
+                        <div class="overflow-hidden mb-6 bg-surface-container aspect-[4/5] relative flex items-end p-8">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                            <div class="relative z-10 text-left">
+                                <p class="font-label-caps text-label-caps text-secondary-container mb-3">LIVE PROJECT</p>
+                                <p class="font-display-lg text-[36px] md:text-[48px] text-on-primary tracking-tight">Heet<br />Polymers</p>
+                            </div>
+                            <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 smooth-glide"></div>
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-1">Heet Polymers</h3>
+                        <span class="font-label-caps text-label-caps text-on-surface-variant">React · Vite · Tailwind CSS</span>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-3">
+                            Corporate website for Heet Polymers — product showcase and services, built with a modern React stack and deployed on Vercel.
+                        </p>
+                    </a>
+                </article>
+                <article class="group md:mt-24">
+                    <div class="overflow-hidden mb-6 bg-surface-container aspect-[4/5] relative flex items-center justify-center p-8">
+                        <div class="text-center">
+                            <p class="font-label-caps text-label-caps text-secondary mb-4">IN PROGRESS</p>
+                            <p class="font-headline-md text-headline-md text-primary">More work<br />coming soon</p>
+                        </div>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm text-primary mb-1">Next Build</h3>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Full-Stack Experiments</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-surface-container-low border-y border-on-surface/5 py-12">
+            <div class="max-w-container-max mx-auto px-mobile-margin flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-70">
+                <span class="font-label-caps text-label-caps">REACT / NEXT.JS</span>
+                <span class="font-label-caps text-label-caps">NODE / EXPRESS</span>
+                <span class="font-label-caps text-label-caps">TYPESCRIPT</span>
+                <span class="font-label-caps text-label-caps">MONGODB / POSTGRES</span>
+                <span class="font-label-caps text-label-caps">JWT / RBAC</span>
+            </div>
+        </section>
+
+        <section class="max-w-container-max mx-auto px-mobile-margin py-section-padding" id="education">
+            <div class="mb-12">
+                <span class="font-label-caps text-label-caps text-secondary block mb-2">ACADEMICS</span>
+                <h2 class="font-headline-md text-headline-md text-primary">Education</h2>
+            </div>
+            <div class="space-y-10">
+                <article class="grid grid-cols-1 md:grid-cols-12 gap-4 border-t border-on-surface/10 pt-8">
+                    <time class="md:col-span-3 font-label-caps text-label-caps text-secondary">2024–2028</time>
+                    <div class="md:col-span-9">
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-2">B.Tech in Computer Science &amp; Engineering</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-3">Indus University, Gujarat</p>
+                        <details class="group">
+                            <summary class="font-label-caps text-label-caps text-secondary cursor-pointer list-none flex items-center gap-2">
+                                View grades
+                                <span class="material-symbols-outlined text-[16px] group-open:rotate-180 smooth-glide">expand_more</span>
+                            </summary>
+                            <div class="mt-3 font-body-md text-body-md text-on-surface-variant space-y-1">
+                                <p>Sem 1: 8.95 SGPA</p>
+                                <p>Sem 2: 9.23 SGPA</p>
                             </div>
                         </details>
                     </div>
                 </article>
-                <article class="timeline-item reveal-child" data-tilt>
-                    <time>2024</time>
-                    <div>
-                        <h3>12th Science</h3>
-                        <p class="place">Edunova School, Gujarat — 70%</p>
+                <article class="grid grid-cols-1 md:grid-cols-12 gap-4 border-t border-on-surface/10 pt-8">
+                    <time class="md:col-span-3 font-label-caps text-label-caps text-secondary">2024</time>
+                    <div class="md:col-span-9">
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-2">12th Science</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Edunova School, Gujarat — 70%</p>
                     </div>
                 </article>
-                <article class="timeline-item reveal-child" data-tilt>
-                    <time>2022</time>
-                    <div>
-                        <h3>10th Grade</h3>
-                        <p class="place">Doon International Public School, Gujarat — 80%</p>
+                <article class="grid grid-cols-1 md:grid-cols-12 gap-4 border-t border-on-surface/10 pt-8 border-b pb-8">
+                    <time class="md:col-span-3 font-label-caps text-label-caps text-secondary">2022</time>
+                    <div class="md:col-span-9">
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-2">10th Grade</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Doon International Public School, Gujarat — 80%</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="section reveal" id="projects">
-            <h2 class="reveal-child"><span class="section-mark">03</span> Projects</h2>
-            <article class="project reveal-child" data-tilt>
-                <div class="project-top">
-                    <h3>Heet Polymers</h3>
-                    <span class="project-status">Live</span>
+        <section class="max-w-container-max mx-auto px-mobile-margin py-section-padding" id="skills">
+            <div class="mb-12">
+                <span class="font-label-caps text-label-caps text-secondary block mb-2">CAPABILITIES</span>
+                <h2 class="font-headline-md text-headline-md text-primary">Technical Skills</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Frontend</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Tailwind CSS</p>
                 </div>
-                <p>Corporate website for Heet Polymers — product showcase and services, built with a modern React stack
-                    and deployed on Vercel.</p>
-                <ul class="skill-tags">
-                    <li>React</li>
-                    <li>Vite</li>
-                    <li>Tailwind CSS</li>
-                </ul>
-                <a href="https://heet-polymers.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
-                    <i class="fas fa-external-link-alt"></i> Live demo
-                </a>
-            </article>
-        </section>
-
-        <section class="section reveal" id="skills">
-            <h2 class="reveal-child"><span class="section-mark">04</span> Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Frontend</h3>
-                    <ul class="skill-tags">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>TypeScript</li>
-                        <li>React.js</li>
-                        <li>Next.js</li>
-                        <li>Tailwind CSS</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Backend</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Node.js, Express.js, REST APIs</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Backend</h3>
-                    <ul class="skill-tags">
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>REST APIs</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Database</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">MongoDB, PostgreSQL, Prisma ORM</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Database</h3>
-                    <ul class="skill-tags">
-                        <li>MongoDB</li>
-                        <li>PostgreSQL</li>
-                        <li>Prisma ORM</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Languages</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">JavaScript, TypeScript, Python, C++, C</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Languages</h3>
-                    <ul class="skill-tags">
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>Python</li>
-                        <li>C++</li>
-                        <li>C</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Auth &amp; Security</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">JWT Authentication, bcrypt, Role-Based Access Control (RBAC)</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Auth &amp; Security</h3>
-                    <ul class="skill-tags">
-                        <li>JWT Authentication</li>
-                        <li>bcrypt</li>
-                        <li>RBAC</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Tools &amp; Deployment</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Git, GitHub, VS Code, Postman, npm, Vercel, Render</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Version Control</h3>
-                    <ul class="skill-tags">
-                        <li>Git</li>
-                        <li>GitHub</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Web Development</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Responsive Design, CRUD Operations, API Integration, MVC Architecture</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Tools &amp; Deployment</h3>
-                    <ul class="skill-tags">
-                        <li>VS Code</li>
-                        <li>Postman</li>
-                        <li>npm</li>
-                        <li>Vercel</li>
-                        <li>Render</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Problem Solving</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">DSA, Debugging, Algorithm Optimization</p>
                 </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Web Development</h3>
-                    <ul class="skill-tags">
-                        <li>Responsive Design</li>
-                        <li>CRUD Operations</li>
-                        <li>API Integration</li>
-                        <li>MVC Architecture</li>
-                    </ul>
-                </div>
-                <div class="skill-group reveal-child" data-tilt>
-                    <h3>Problem Solving</h3>
-                    <ul class="skill-tags">
-                        <li>DSA</li>
-                        <li>Debugging</li>
-                        <li>Algorithm Optimization</li>
-                    </ul>
+                <div class="border-t border-on-surface/10 pt-6">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Soft Skills</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Problem Solving, Team Collaboration, Communication, Fast Learner, Time Management, Adaptability</p>
                 </div>
             </div>
         </section>
 
-        <div class="split-row reveal" id="more">
-            <section class="section reveal-child" data-tilt>
-                <h2><span class="section-mark">05</span> Soft Skills</h2>
-                <ul class="plain-list">
-                    <li>Problem Solving</li>
-                    <li>Team Collaboration</li>
-                    <li>Communication</li>
-                    <li>Fast Learner</li>
-                    <li>Time Management</li>
-                    <li>Adaptability</li>
-                </ul>
-            </section>
-
-            <section class="section reveal-child" data-tilt>
-                <h2><span class="section-mark">06</span> Languages</h2>
-                <ul class="plain-list">
-                    <li>English</li>
-                    <li>Hindi</li>
-                    <li>Gujarati</li>
-                </ul>
-            </section>
-
-            <section class="section reveal-child" data-tilt>
-                <h2><span class="section-mark">07</span> Interests</h2>
-                <ul class="plain-list">
-                    <li>Cricket</li>
-                    <li>Gaming</li>
-                    <li>Table Tennis</li>
-                    <li>Reading</li>
-                </ul>
-            </section>
-        </div>
+        <section class="max-w-container-max mx-auto px-mobile-margin pb-section-padding">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <div class="bg-surface-container-low p-8 md:p-10">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Languages</h3>
+                    <p class="font-headline-sm text-headline-sm text-primary">English · Hindi · Gujarati</p>
+                </div>
+                <div class="bg-surface-container-low p-8 md:p-10">
+                    <h3 class="font-label-caps text-label-caps text-secondary mb-4">Interests</h3>
+                    <p class="font-headline-sm text-headline-sm text-primary">Cricket · Gaming · Table Tennis · Reading</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer">
-        <p>© 2026 Shivansh Pareshbhai Patel</p>
-        <button type="button" class="to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <footer class="w-full py-section-padding bg-surface dark:bg-background border-t border-on-surface/10">
+        <div class="flex flex-col md:flex-row justify-between items-center px-mobile-margin max-w-container-max mx-auto gap-8">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <h2 class="font-display-lg text-display-lg-mobile text-primary tracking-tighter">SHIVANSH</h2>
+                <p class="font-label-caps text-label-caps text-on-surface-variant">© 2026 Shivansh Pareshbhai Patel. All rights reserved.</p>
+            </div>
+            <div class="flex gap-gutter">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide"
+                    href="https://github.com/patelshivansh0111-dot" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary smooth-glide"
+                    href="https://www.linkedin.com/in/shivansh-patel-858858356" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="font-label-caps text-label-caps text-primary mb-2">LET'S COLLABORATE</p>
+                <a class="font-headline-sm text-headline-sm text-primary hover:text-secondary smooth-glide underline decoration-1 underline-offset-4"
+                    href="mailto:patelshivansh0111@gmail.com">patelshivansh0111@gmail.com</a>
+            </div>
+        </div>
     </footer>
 
     <script type="module" src="script.js"></script>
